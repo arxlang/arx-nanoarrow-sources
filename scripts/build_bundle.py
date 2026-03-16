@@ -1,5 +1,5 @@
 """
-Build the bundled nanoarrow sources shipped by arx-nanoarrow-sources.
+title: Build the bundled nanoarrow sources for arx-nanoarrow-sources.
 """
 
 from __future__ import annotations
@@ -11,6 +11,7 @@ import sys
 import tarfile
 import tempfile
 import urllib.request
+
 from pathlib import Path
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +33,7 @@ UPSTREAM_ARCHIVE_URL = (
 
 def build_bundle() -> None:
     """
-    Build and vendor the generated nanoarrow C bundle.
+    title: Build and vendor the generated nanoarrow C bundle.
     """
     with tempfile.TemporaryDirectory() as tmp_dir:
         tmp_path = Path(tmp_dir)

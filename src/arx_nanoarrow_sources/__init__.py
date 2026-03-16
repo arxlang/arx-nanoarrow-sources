@@ -1,5 +1,5 @@
 """
-Locate the bundled nanoarrow source artifacts shipped by this package.
+title: Locate the bundled nanoarrow source artifacts shipped by this package.
 """
 
 from arx_nanoarrow_sources._bundle import (

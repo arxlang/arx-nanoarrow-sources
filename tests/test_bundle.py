@@ -1,5 +1,5 @@
 """
-Tests for the packaged nanoarrow bundle helpers.
+title: Tests for the packaged nanoarrow bundle helpers.
 """
 
 from arx_nanoarrow_sources import (
@@ -17,7 +17,7 @@ from arx_nanoarrow_sources._bundle import read_bundle_metadata
 
 def test_bundle_paths_exist() -> None:
     """
-    Bundle directories and files should exist after generation.
+    title: Assert that the generated bundle paths exist.
     """
     assert bundle_root().exists()
     assert get_include_dir().exists()
@@ -29,7 +29,7 @@ def test_bundle_paths_exist() -> None:
 
 def test_bundle_metadata_matches_helper_api() -> None:
     """
-    Bundle metadata should agree with the exported helper functions.
+    title: Assert that bundle metadata matches the helper API.
     """
     metadata = read_bundle_metadata()
 
