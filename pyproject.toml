@@ -43,6 +43,10 @@ include = [
 pytest = ">=8.0.0"
 ruff = ">=0.11.0"
 mypy = ">=1.10.0"
+bandit = ">=1.9.4"
+vulture = ">=2.15"
+pre-commit = ">=4.5.1"
+douki = ">=0.12.0"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

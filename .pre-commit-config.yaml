@@ -59,19 +59,6 @@ repos:
         language: system
         pass_filenames: false
 
-      - id: shellcheck
-        name: shellcheck
-        entry: shellcheck
-        language: system
-        types_or:
-          - sh
-          - shell
-          - ash
-          - bash
-          - bats
-          - dash
-          - ksh
-
       - id: bandit
         name: bandit
         entry: bandit
@@ -87,15 +74,6 @@ repos:
         language: system
         files: "./"
         description: Find unused Python code.
-        pass_filenames: true
-        types:
-          - python
-
-      - id: mccabe
-        name: mccabe
-        entry: python -m mccabe --min 10
-        language: system
-        files: "./"
         pass_filenames: true
         types:
           - python

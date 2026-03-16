@@ -39,10 +39,9 @@ jobs:
         run: pytest -q
 
       - name: Lint
-        run: ruff check .
-
-      - name: Type check
-        run: mypy src tests
+        run: |
+          pre-commit install
+          pre-commit run --all-files
 
       - name: Build package
         run: poetry build
