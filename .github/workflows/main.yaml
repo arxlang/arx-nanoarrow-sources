@@ -1,0 +1,44 @@
+name: main
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          miniforge-version: latest
+          environment-file: conda/env.yaml
+          channels: conda-forge,nodefaults
+          activate-environment: arx-nanoarrow-sources
+          auto-update-conda: true
+          conda-solver: libmamba
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: poetry install --with dev
+
+      - name: Generate nanoarrow bundle
+        run: python scripts/build_bundle.py
+
+      - name: Run tests
+        run: pytest -q
+
+      - name: Lint
+        run: ruff check .
+
+      - name: Type check
+        run: mypy src tests
+
+      - name: Build package
+        run: poetry build

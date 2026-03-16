@@ -1,0 +1,41 @@
+name: release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          miniforge-version: latest
+          environment-file: conda/env.yaml
+          channels: conda-forge,nodefaults
+          activate-environment: arx-nanoarrow-sources
+          auto-update-conda: true
+          conda-solver: libmamba
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: poetry install --with dev
+
+      - name: Generate nanoarrow bundle
+        run: python scripts/build_bundle.py
+
+      - name: Build package
+        run: poetry build
+
+      - name: Publish to PyPI
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          poetry config pypi-token.pypi "${PYPI_TOKEN}"
+          poetry publish

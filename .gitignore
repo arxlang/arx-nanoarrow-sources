@@ -9,6 +9,8 @@ __pycache__/
 # Distribution / packaging
 .Python
 build/
+src/arx_nanoarrow_sources/vendor/*
+!src/arx_nanoarrow_sources/vendor/README.md
 develop-eggs/
 dist/
 downloads/
