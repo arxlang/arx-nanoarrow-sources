@@ -30,13 +30,13 @@ packages = [
   {include = "arx_nanoarrow_sources", from = "src"},
 ]
 include = [
-  "src/arx_nanoarrow_sources/py.typed",
-  "src/arx_nanoarrow_sources/vendor/**/*.c",
-  "src/arx_nanoarrow_sources/vendor/**/*.h",
-  "src/arx_nanoarrow_sources/vendor/**/*.hpp",
-  "src/arx_nanoarrow_sources/vendor/**/*.json",
-  "src/arx_nanoarrow_sources/vendor/**/*.md",
-  "src/arx_nanoarrow_sources/vendor/**/*.txt",
+  {path = "src/arx_nanoarrow_sources/py.typed", format = ["sdist", "wheel"]},
+  {path = "src/arx_nanoarrow_sources/vendor/**/*.c", format = ["sdist", "wheel"]},
+  {path = "src/arx_nanoarrow_sources/vendor/**/*.h", format = ["sdist", "wheel"]},
+  {path = "src/arx_nanoarrow_sources/vendor/**/*.hpp", format = ["sdist", "wheel"]},
+  {path = "src/arx_nanoarrow_sources/vendor/**/*.json", format = ["sdist", "wheel"]},
+  {path = "src/arx_nanoarrow_sources/vendor/**/*.md", format = ["sdist", "wheel"]},
+  {path = "src/arx_nanoarrow_sources/vendor/**/*.txt", format = ["sdist", "wheel"]},
 ]
 
 [tool.poetry.group.dev.dependencies]
