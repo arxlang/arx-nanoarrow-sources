@@ -31,9 +31,10 @@ print(get_source_files())
 
 ## Build behavior
 
-`poetry build` runs `scripts/build_bundle.py`, which downloads the pinned
-upstream nanoarrow source release, runs the official upstream bundler, and
-stores the generated output under `src/arx_nanoarrow_sources/vendor/`.
+Run `python scripts/build_bundle.py` before `poetry build`. The bundle script
+downloads the pinned upstream nanoarrow source release, runs the official
+upstream bundler, and stores the generated output under
+`src/arx_nanoarrow_sources/vendor/`.
 
 ## Development
 
